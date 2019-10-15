@@ -1,0 +1,64 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    font-size: 15px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+   
+}
+.nav-item a{
+    text-decoration: none;
+    font-size:20px;
+}
+#DataList1{
+    margin: 20px 20px;
+}
+    #DataList1 td{
+        padding:15px;
+    }
+  
+    .nav-item {
+        list-style: none;
+    }
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.product img{
+    width: 380px;
+}
+.product a{
+    text-decoration:none;
+}
+.item img {
+    width: 100%;
+}
+.jumbotron {
+    padding: 0px;
+    margin: 0px;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.content {
+  margin-top:50px;
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        
+    }
+
+    .body-content {
+        padding: 0;
+    }
+}

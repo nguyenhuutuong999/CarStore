@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Final.Site1" %>
+
+
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form" runat="server">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <asp:HyperLink runat="server" NavigateUrl="~/">Home</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink runat="server" NavigateUrl="~/About.aspx">About</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink runat="server" NavigateUrl="~/Contact.aspx">Contact</asp:HyperLink></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content row">
+            <div class="col-lg-2">
+                <ul class="nav flex-column">
+                </ul>
+                <asp:DataList ID="DataList1" runat="server">
+                    <ItemTemplate>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LinkButton1"  runat="server" CommandArgument='<%#Eval("MaDM")%>' Text='<%#Eval("TenDM")%>' OnClick="LinkButton1_Click"></asp:LinkButton>
+                        </li>
+
+                    </ItemTemplate>
+                </asp:DataList>
+            </div>
+
+
+            <div class="main-content col-lg-8">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+
+            </div>
+            <div class="login col-lg-2 ">
+                <% if (Session["isLogin"].Equals("") == true)
+                    { %>
+
+                <h2>Login Form Test</h2>
+
+                <div class="container-login">
+                    <label for="uname"><b>Username : tuong</b></label>
+                    <asp:TextBox ID="txtUser" runat="server"></asp:TextBox><br />
+
+                    <label for="psw"><b>Password : 123</b></label>
+                    <asp:TextBox ID="txtPass" TextMode="Password" runat="server"></asp:TextBox><br />
+
+                    <asp:Button ID="Button1" runat="server" Text="Login" OnClick="btn_Login" /><br />
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember">
+                        Remember me
+                    </label>
+                    <br />
+                    <asp:Label ID="lbInfor" runat="server" Text="" ForeColor="red"></asp:Label>
+                </div>
+                <%}
+                    else
+                    { %>
+                <div class="container" style="height: 0%; width: auto;">
+
+                    <asp:Label ID="isLogin" runat="server" Text=""></asp:Label>
+                    <asp:HyperLink ID="exit" NavigateUrl="a" runat="server">Thoát</asp:HyperLink><br />
+                    <asp:HyperLink ID="Cart" NavigateUrl="a" runat="server">Xem giỏ hàng</asp:HyperLink>
+                </div>
+                <% } %>
+            </div>
+
+        </div>
+       
+    </form>
+
+</body>
+</html>
+
